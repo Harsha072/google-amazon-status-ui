@@ -1,0 +1,28 @@
+<div class="status-container">
+  <h1>Status Overview</h1>
+  
+  <div class="status-section">
+    <h2>Google Status</h2>
+    <div class="status-content">
+      <pre *ngIf="googleStatus">{{ googleStatus | json }}</pre>
+      <p *ngIf="!googleStatus" class="loading-message">Loading...</p>
+    </div>
+  </div>
+  
+  <div class="status-section">
+    <h2>Amazon Status</h2>
+    <div class="status-content">
+      <pre *ngIf="amazonStatus">{{ amazonStatus | json }}</pre>
+      <p *ngIf="!amazonStatus" class="loading-message">Loading...</p>
+    </div>
+  </div>
+  
+  <div class="status-section">
+    <h2>All Status</h2>
+    <div class="status-content">
+      <pre *ngIf="allStatus">{{ allStatus | json }}</pre>
+      <p *ngIf="!allStatus" class="loading-message">Loading...</p>
+    </div>
+  </div>
+</div>
+  

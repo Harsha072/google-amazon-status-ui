@@ -1,0 +1,32 @@
+.status-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .status-section {
+    margin-bottom: 20px;
+  }
+  
+  .status-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333333;
+  }
+  
+  .status-content {
+    background-color:azure;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px aqua;
+  }
+  
+  .status-content pre {
+    white-space: pre-wrap; /* Ensures long lines are wrapped */
+    word-wrap: break-word;
+    margin: 0;
+  }
+  
+  .loading-message {
+    color: #999;
+    font-style: italic;
+  }
