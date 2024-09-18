@@ -23,7 +23,6 @@ export class StatusComponent {
   }
 
   fetchStatus(): void {
-    console.log('Fetching status...');
     this.statusService.getGoogleStatus().subscribe(
       data => this.googleStatus = data,
       error => console.error('Error fetching Google status:', error)

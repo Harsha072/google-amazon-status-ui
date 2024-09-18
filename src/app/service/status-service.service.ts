@@ -1,26 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
+import { environment } from '../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatusServiceService {
 
-  private googleUrl = 'http://localhost:3000/v1/google-status';
-  private amazonUrl = 'http://localhost:3000/v1/amazon-status';
-  private allUrl = 'http://localhost:3000/v1/all-status';
+  private googleUrl = `${environment.apiUrl}/v1/google-status`;
+  private amazonUrl = `${environment.apiUrl}/v1/amazon-status`;
+  private allUrl = `${environment.apiUrl}/v1/all-status`;
 
   constructor(private http: HttpClient) {}
 
   getGoogleStatus(): Observable<any> {
-    return this.http.get<any>(this.googleUrl);
+    return this.http.get<any>(this.googleUrl).pipe(
+      catchError(error => {
+        console.error('Error fetching Google status:', error);
+        return throwError(error);
+      })
+    );
   }
 
   getAmazonStatus(): Observable<any> {
-    return this.http.get<any>(this.amazonUrl);
+    return this.http.get<any>(this.amazonUrl).pipe(
+      catchError(error => {
+        console.error('Error fetching Amazon status:', error);
+        return throwError(error);
+      })
+    );
   }
   getAllStatus(): Observable<any> {
-    return this.http.get<any>(this.allUrl);
+    return this.http.get<any>(this.allUrl).pipe(
+      catchError(error => {
+        console.error('Error fetching both status:', error);
+        return throwError(error);
+      })
+    );
   }
 }
